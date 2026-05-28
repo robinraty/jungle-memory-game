@@ -26,6 +26,15 @@ body {
     overflow-x: hidden;
 }
 
+.app {
+    user-select: none;
+}
+
+::selection {
+    background: #709d46;
+    color: #fff7df;
+}
+
 button {
     font: inherit;
 }
@@ -37,7 +46,6 @@ p, h1 {
 .app {
     min-height: 100vh;
     width: 100%;
-
     padding: 1.5rem;
 
     display: flex;
@@ -48,11 +56,12 @@ p, h1 {
 }
 
 /* =========================
-MENU HEADER + GAME HEADER
+PANELS
 ========================= */
 
 .header,
-.gameHeader {
+.gameHeader,
+.endGamePanel {
     position: relative;
 
     width: 100%;
@@ -87,12 +96,12 @@ MENU HEADER + GAME HEADER
 }
 
 .header::before,
-.gameHeader::before {
+.gameHeader::before,
+.endGamePanel::before {
     content: "";
     position: absolute;
     inset: -55px;
 
-    /* background-image: url("../images/leaves.png"); */
     background-size: cover;
     background-position: center;
 
@@ -101,7 +110,8 @@ MENU HEADER + GAME HEADER
 }
 
 .header::after,
-.gameHeader::after {
+.gameHeader::after,
+.endGamePanel::after {
     content: "";
     position: absolute;
     inset: 0;
@@ -113,15 +123,18 @@ MENU HEADER + GAME HEADER
 }
 
 .header > *,
-.gameHeader > * {
+.gameHeader > *,
+.endGamePanel > * {
     position: relative;
     z-index: 2;
 }
 
 .header h1,
-.gameHeader h1 {
+.gameHeader h1,
+.endGamePanel h1 {
     margin: 0;
     padding-bottom: 0.8rem;
+
     font-size: clamp(3.2rem, 8vw, 6.4rem);
     line-height: 0.9;
     font-weight: 800;
@@ -148,14 +161,6 @@ MENU HEADER + GAME HEADER
 }
 
 /* =========================
-MENU HEADER
-========================= */
-
-.header {
-    max-width: 900px;
-}
-
-/* =========================
 GAME HEADER
 ========================= */
 
@@ -176,10 +181,28 @@ GAME HEADER
 }
 
 /* =========================
-START BUTTON
+END GAME PANEL
 ========================= */
 
-.gameStarter {
+.endGamePanel {
+    display: none;
+}
+
+.endGamePanel h1 {
+    font-size: clamp(3.2rem, 8vw, 6rem);
+}
+
+.endGamePanel .stats {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 620px;
+}
+
+/* =========================
+BUTTONS
+========================= */
+
+.gameStarter,
+.restartButton {
     margin-top: 1.2rem;
 
     position: relative;
@@ -221,7 +244,8 @@ START BUTTON
         box-shadow 0.15s ease;
 }
 
-.gameStarter:hover {
+.gameStarter:hover,
+.restartButton:hover {
     transform: translateY(-5px) scale(1.03);
 
     box-shadow:
@@ -230,7 +254,8 @@ START BUTTON
         inset 0 4px 0 rgba(255, 255, 255, 0.18);
 }
 
-.gameStarter:active {
+.gameStarter:active,
+.restartButton:active {
     transform: translateY(7px);
 
     box-shadow:
@@ -320,7 +345,7 @@ GAME
 
     padding: 1rem;
 
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(6, 1fr);
     gap: 12px;
 
     background:
@@ -341,6 +366,9 @@ GAME
 
 .card {
     aspect-ratio: 1 / 1;
+
+    -webkit-user-select: none;
+    user-select: none;
 
     display: flex;
     align-items: center;
@@ -415,6 +443,10 @@ GAME
     display: flex;
 }
 
+.matched {
+    opacity: 0;
+}
+
 /* =========================
 RESPONSIVE
 ========================= */
@@ -426,17 +458,20 @@ RESPONSIVE
     }
 
     .header,
-    .gameHeader {
+    .gameHeader,
+    .endGamePanel {
         padding: 2rem 1rem 2.4rem;
         border-radius: 26px;
     }
 
-    .gameStarter {
+    .gameStarter,
+    .restartButton {
         width: 100%;
         padding: 1rem 2rem;
     }
 
-    .stats {
+    .stats,
+    .endGamePanel .stats {
         grid-template-columns: 1fr;
     }
 
@@ -451,5 +486,11 @@ RESPONSIVE
 
     .card {
         border-radius: 14px;
+    }
+}
+
+@media (max-width: 900px) {
+    .game {
+        grid-template-columns: repeat(4, 1fr);
     }
 }

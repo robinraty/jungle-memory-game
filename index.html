@@ -18,12 +18,14 @@
 
     <main class="app">
 
+        <!-- GAME STARTER -->
         <div class="header">
             <h1>Jungle Memory</h1>
             <p class="subtitle">Find all matching jungle pairs</p>
             <button class="gameStarter">Start</button>
         </div>
 
+        <!-- GAME HEADER -->
         <div class="gameHeader">
             <h1>Jungle Memory</h1>
             <p class="subtitle">Find all matching jungle pairs</p>
@@ -36,7 +38,7 @@
 
                 <div class="stat">
                     <div class="stat-label">Time</div>
-                    <div class="stat-value stat-value__time">0</div>
+                    <div class="stat-value stat-value__time">00:00</div>
                 </div>
 
                 <div class="stat">
@@ -46,33 +48,28 @@
             </div>
         </div>
 
-
+        <!-- GAME -->
         <div class="game">
+        </div>
 
-            <div class="card" data-symbol="🍕"><div class="up">?</div><div class="down">🍕</div></div>
-            <div class="card" data-symbol="🍕"><div class="up">?</div><div class="down">🍕</div></div>
-
-            <div class="card" data-symbol="🍔"><div class="up">?</div><div class="down">🍔</div></div>
-            <div class="card" data-symbol="🍔"><div class="up">?</div><div class="down">🍔</div></div>
-
-            <div class="card" data-symbol="🍟"><div class="up">?</div><div class="down">🍟</div></div>
-            <div class="card" data-symbol="🍟"><div class="up">?</div><div class="down">🍟</div></div>
-
-            <div class="card" data-symbol="🌮"><div class="up">?</div><div class="down">🌮</div></div>
-            <div class="card" data-symbol="🌮"><div class="up">?</div><div class="down">🌮</div></div>
-
-            <div class="card" data-symbol="🍩"><div class="up">?</div><div class="down">🍩</div></div>
-            <div class="card" data-symbol="🍩"><div class="up">?</div><div class="down">🍩</div></div>
-
-            <div class="card" data-symbol="🍉"><div class="up">?</div><div class="down">🍉</div></div>
-            <div class="card" data-symbol="🍉"><div class="up">?</div><div class="down">🍉</div></div>
-
-            <div class="card" data-symbol="🍓"><div class="up">?</div><div class="down">🍓</div></div>
-            <div class="card" data-symbol="🍓"><div class="up">?</div><div class="down">🍓</div></div>
-
-            <div class="card" data-symbol="🍪"><div class="up">?</div><div class="down">🍪</div></div>
-            <div class="card" data-symbol="🍪"><div class="up">?</div><div class="down">🍪</div></div>
-
+        <!-- END GAME PANEL -->
+        <div class="endGamePanel">
+            <h1>You won!</h1>
+            <p class="subtitle">All jungle pairs found</p>
+        
+            <div class="stats">
+                <div class="stat">
+                    <div class="stat-label">Final moves</div>
+                    <div class="stat-value final-moves">0</div>
+                </div>
+        
+                <div class="stat">
+                    <div class="stat-label">Final time</div>
+                    <div class="stat-value final-time">00:00</div>
+                </div>
+            </div>
+        
+            <button class="restartButton">Play again</button>
         </div>
 
     </main>
